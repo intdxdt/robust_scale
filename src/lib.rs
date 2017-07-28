@@ -63,16 +63,16 @@ mod robust_scale {
 
     #[test]
     fn test_robust_scale() {
-			assert_eq!(robust_scale(&vec!(4.), 2.), [8.]);
-			assert_eq!(robust_scale(&vec!(1., 1e64), 2.), [2., 2e64]);
-			assert_eq!(robust_scale(&vec!(1.), 1.), [1.]);
-			let s = robust_scale(&vec!(-2.4707339790384e-144, -1.6401064715739963e-142, 2e-126), -10e-64);
-			assert!(s[s.len()-1] < 0.0);
+        assert_eq!(robust_scale(&vec!(4.), 2.), [8.]);
+        assert_eq!(robust_scale(&vec!(1., 1e64), 2.), [2., 2e64]);
+        assert_eq!(robust_scale(&vec!(1.), 1.), [1.]);
+        let s = robust_scale(&vec!(-2.4707339790384e-144, -1.6401064715739963e-142, 2e-126), -10e-64);
+        assert!(s[s.len() - 1] < 0.0);
 
-			for i  in  -50..50 {
-				for j in  -50..50 {
-					assert_eq!(robust_scale(&vec!(i as f64), j as f64), [(i * j) as f64])
-				}
-			}
+        for i in -50..50 {
+            for j in -50..50 {
+                assert_eq!(robust_scale(&vec!(i as f64), j as f64), [(i * j) as f64])
+            }
+        }
     }
 }
