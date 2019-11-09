@@ -13,7 +13,7 @@ fn linear_expansion(e: &[f64], scale: f64) -> Vec<f64> {
     if n == 1 {
         let ts = two_product(e[0], scale);
         if ts[0] != 0.0 {
-            return ts;
+            return ts.to_vec();
         }
         return vec!(ts[1]);
     }
